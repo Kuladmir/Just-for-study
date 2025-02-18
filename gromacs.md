@@ -8,7 +8,7 @@ From: http://www.mdtutorials.com/gmx/complex/01_pdb2gmx.html
 >Don't waste pure thoughts on dirty enzymes.不要把纯粹的想法浪费在肮脏的酶上。
 
 #### 1913.6.28--1991.9.9  奥地利生物化学家
-> ?-1938   维也纳那血  --> 药物方向 
+> ?-1938   维也纳大学  --> 药物方向 
 
 > 1941-1942  明尼苏达大学  生物学副研
 
