@@ -7,7 +7,7 @@
 
  installpath="."
 
- rsync -a n101:/home/soft/ucsfdock/DOCK-3.7-bbe1a30c $installpath
+ rsync -a n101:/home/soft/ucsfdock/bela30c $installpath
  ```
 ### 1.1  设置环境
 创建dock37.yml环境调谐文件
