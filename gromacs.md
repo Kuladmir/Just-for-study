@@ -275,7 +275,7 @@ perl sort_mol2_bonds.pl jz4.mol2 jz4_fix.mol2
 
 使用CGenFF将mol2文件转化。
 ```
-/pubhome/soft/silcsbio.2024.1/cgenff/cgenff
+/pubhome/soft/silcsbio.2024.1/cgenff/cgenff -f jz4.mol2 > jz4.str
 ```
 
 **4）文件再处理**
