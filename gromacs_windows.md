@@ -22,11 +22,11 @@ From: http://www.mdtutorials.com/gmx/complex/01_pdb2gmx.html
 gmx --version
 ```
 如果有输出，类似于这样，则安装完成。
->                :- ) GROMACS - gmx, 2020.6-MODIFIED ( -:
+>      :- ) GROMACS - gmx, 2020.6-MODIFIED ( -:
 > 
->		GROMACS is written by: authons(...)
+>     GROMACS is written by: authons(...)
 >
->          Executable:   D:\gromacs\gmx2020.6_AVX2_CUDA_win64\gmx2020.6_GPU\bin\gmx.exe
+>     Executable:   D:\gromacs\gmx2020.6_AVX2_CUDA_win64\gmx2020.6_GPU\bin\gmx.exe
 
 
 ### 1.2  初始化蛋白的pdb文件
@@ -1374,6 +1374,14 @@ gmx editconf -f complex.gro -o newbox.gro -bt dodecahedron -d 1.0
 
 gmx solvate -cp newbox.gro -cs spc216.gro -p topol.top -o solv.gro
 ```
+溶剂化处理后建议打开topol.top文件，翻到最后部分，查看是否有重行的内容，最佳状态：
+> ; Compound        #mols
+>  Protein_chain_A     1
+>  JZ4                 1
+>  SOL             10288
+>  CL                  6
+>
+>
 ## 4.添加离子
 
 查看电荷，可以从topol.top的[atoms]部分的最后一行看到一句`qtot 6`。
