@@ -1873,7 +1873,7 @@ gmx mdrun -deffnm ie -rerun md_0_10.xtc -nb cpu
 >                Core t (s)   Wall t (s)     (%)
 >     Time:     1320.000       66.000     2000.0
 >                (ns/day)    (hour/ns) 
-> Performance:    13090.912        0.002
+>     Performance:    13090.912        0.002
 
 之后提取感兴趣的能量部分：
 ```
@@ -1881,9 +1881,13 @@ gmx energy -f ie.edr -o interaction_energy.xvg
 ```
 之后会出现一个功能选择，类似于这样：
 >  1  Bond             2  U-B              3  Proper-Dih.      4  Improper-Dih.
+> 
 > 13  Box-Y           14  Box-Z           15  Volume          16  Density
+> 
 > 17  Coul-SR:Protein-Protein             18  LJ-SR:Protein-Protein
+> 
 > 25  Coul-SR:Protein-rest                26  LJ-SR:Protein-rest
+> 
 > 33  Coul-SR:JZ4-rest                    34  LJ-SR:JZ4-rest
 > 
 本例中，选择了Coul-SR：Protein-JZ4 和 LJ-SR：Protein-JZ4。
