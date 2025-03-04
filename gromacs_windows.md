@@ -1887,7 +1887,9 @@ gmx energy -f ie.edr -o interaction_energy.xvg
 
 之后会输出平均库伦短程作用力，和短程LJ能量（实测）：
 >Energy                      Average   Err.Est.    RMSD  Tot-Drift
+
 >Coul-SR:Protein-JZ4        -20.9018       0.89    7.23901   -6.80852  (kJ/mol)
+
 >LJ-SR:Protein-JZ4          -97.7819       0.89    7.36148    4.80288  (kJ/mol)
 
 ---
