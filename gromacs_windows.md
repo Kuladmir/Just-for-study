@@ -1856,13 +1856,13 @@ gen_vel                 = no        ; continuing from NPT equilibration
 ```
 然后执行：
 ```
-/pubhome/soft/gromacs/2020.5/thread_mpi/bin/gmx grompp -f ie.mdp -c npt.gro -t npt.cpt -p topol.top -n index.ndx -o ie.tpr
+gmx grompp -f ie.mdp -c npt.gro -t npt.cpt -p topol.top -n index.ndx -o ie.tpr
 ```
 
 之后从已有的模拟轨迹里重新计算能量，执行如下命令。
 *<本命令使用CPU计算，计算量不大。>*
 ```
-/pubhome/soft/gromacs/2020.5/thread_mpi/bin/gmx mdrun -deffnm ie -rerun md_0_10.xtc -nb cpu
+gmx mdrun -deffnm ie -rerun md_0_10.xtc -nb cpu
 ```
 之后会得到如下结果（实测）：
 >                Core t (s)   Wall t (s)     (%)
