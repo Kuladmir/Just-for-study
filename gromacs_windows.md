@@ -22,11 +22,11 @@ From: http://www.mdtutorials.com/gmx/complex/01_pdb2gmx.html
 gmx --version
 ```
 如果有输出，类似于这样，则安装完成。
-> :- ) GROMACS - gmx, 2020.6-MODIFIED ( -:
+>                :- ) GROMACS - gmx, 2020.6-MODIFIED ( -:
 > 
 >		GROMACS is written by: authons(...)
 >
->Executable:   D:\gromacs\gmx2020.6_AVX2_CUDA_win64\gmx2020.6_GPU\bin\gmx.exe
+>          Executable:   D:\gromacs\gmx2020.6_AVX2_CUDA_win64\gmx2020.6_GPU\bin\gmx.exe
 
 
 ### 1.2  初始化蛋白的pdb文件
