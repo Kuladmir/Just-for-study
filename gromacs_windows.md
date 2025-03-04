@@ -1885,6 +1885,8 @@ gmx energy -f ie.edr -o interaction_energy.xvg
 > 13  Box-Y           14  Box-Z           15  Volume          16  Density
 > 
 > 17  Coul-SR:Protein-Protein             18  LJ-SR:Protein-Protein
+>
+> 21  Coul-SR:Protein-JZ4                 22  LJ-SR:Protein-JZ4
 > 
 > 25  Coul-SR:Protein-rest                26  LJ-SR:Protein-rest
 > 
