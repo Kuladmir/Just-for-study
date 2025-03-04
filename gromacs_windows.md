@@ -86,7 +86,7 @@ From '/pubhome/soft/gromacs/2020.5/thread_mpi/share/gromacs/top':
 
 0: COO-
 
-***<文中解释：由于3HTB这个蛋白以MET为开头，这种相互作用力是必要的，会导致pdb2gmx功能选择一种不相容的碳水化合物末端类型>***
+*<文中解释：由于3HTB这个蛋白以MET为开头，这种相互作用力是必要的，会导致pdb2gmx功能选择一种不相容的碳水化合物末端类型>*
 
 ### 1.4  准备配体的拓扑文件
 
