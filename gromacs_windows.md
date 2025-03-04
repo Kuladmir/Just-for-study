@@ -96,7 +96,7 @@ From '/pubhome/soft/gromacs/2020.5/thread_mpi/share/gromacs/top':
 
 使用Avogrado完成这个工作。From: https://sourceforge.net/projects/avogadro/
 
-***<使用Avogrado打开jz4.pdb，选择Build --> Add Hydrogen，选择File --> Save as --> .mol2 >***
+*<使用Avogrado打开jz4.pdb，选择Build --> Add Hydrogen，选择File --> Save as --> .mol2 >*
 
 **2）预处理**
 
@@ -265,9 +265,6 @@ perl sort_mol2_bonds.pl jz4.mol2 jz4_fix.mol2
 **3）拓扑转化**
 
 使用CGenFF将mol2文件转化。有个网站可以实现转化，但是目前似乎由于网络原因，无法完成邮箱的认证。
-```
-/pubhome/soft/silcsbio.2024.1/cgenff/cgenff jz4.mol2 -f jz4.str
-```
 
 **4）文件再处理**
 
