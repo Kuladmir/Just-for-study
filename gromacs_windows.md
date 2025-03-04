@@ -1378,7 +1378,7 @@ gmx solvate -cp newbox.gro -cs spc216.gro -p topol.top -o solv.gro
 
 查看电荷，可以从topol.top的[atoms]部分的最后一行看到一句`qtot 6`。
 
-***<由于生命不是由网电荷组成的，因此要在此添加电荷>***
+*<由于生命不是由网电荷组成的，因此要在此添加电荷>*
 
 先创建一个ions.mpd文件
 ```
