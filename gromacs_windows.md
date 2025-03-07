@@ -1750,8 +1750,10 @@ gmx distance -s md_0_10.tpr -f md_0_10_center.xtc -select 'resname "JZ4" and nam
 之后可以得到如下结果（实测）：
 
 >  Number of samples:  1001
-  Average distance:   0.31383  nm
-  Standard deviation: 0.06788  nm
+> 
+>  Average distance:   0.31383  nm
+>  
+>  Standard deviation: 0.06788  nm
 
 判断氢键是否存在的另一个方法是，考察供体原子-H-受体原子的角度。然而在GROMACS里，存在不同的定义：**H-供体-受体的角度<=30°**
 判断角度前需要新创建一个索引：
