@@ -27,7 +27,10 @@ gmx --version
 >     GROMACS is written by: authons(...)
 >
 >     Executable:   D:\gromacs\gmx2020.6_AVX2_CUDA_win64\gmx2020.6_GPU\bin\gmx.exe
-
+#### 1.1+  安装qtgrace可视化软件
+From: https://sourceforge.net/projects/qtgrace/files/qtgrace_v026_Win7.zip/download
+进入页面会自动下载，下载后解压。解压完成后，打开找到gmx.exe文件，将这个文件的路径复制。
+然后打开**设置**，搜索**高级系统设置**，然后点击**环境变量**，在**系统变量**里找到**Path**，选中并点**编辑**，之后选择**新建**，将gmx.exe的路径粘贴。之后点击确定即可。
 
 ### 1.2  初始化蛋白的pdb文件
 
@@ -1466,6 +1469,11 @@ gmx mdrun -v -deffnm em
 
 >Norm of force     =  5.5987542e+01
 
+**特殊步骤*可选：在能量最小化后，会产生一个em.edr文件，通过使用energy功能，可以分析能量变化过程**。产生的文件可以从Gromacs_index.pdf里看到（图片识别码：Gromacs_mini_1）。
+```
+gmx energy -f em.edr -o em_test.xvg
+```
+在输出的组里选择`  1  Bond           `
 ## 6.平衡蛋白-受体
 在此过程，有两个特殊考虑：1.限制配体；2.温度耦合组的处理
 
@@ -1579,6 +1587,11 @@ gmx grompp -f nvt.mdp -c em.gro -r em.gro -p topol.top -n index.ndx -o nvt.tpr
 
 gmx mdrun -deffnm nvt
 ```
+**特殊步骤*可选：在进行温度耦合后，会产生一个nvt.edr文件，通过使用energy功能，可以分析能量变化过程**。产生的文件可以从Gromacs_index.pdf里看到（图片识别码：Gromacs_nvt_1）。
+```
+gmx energy -f nvt.edr -o nvt_test.xvg
+```
+在输出的组里选择`  1  Bond           `
 ### 6.3  再平衡
 当nvt模拟完成后，开始npt模拟。
 创建npt.mdp文件，写入以下内容：
@@ -1638,6 +1651,12 @@ gmx grompp -f npt.mdp -c nvt.gro -t nvt.cpt -r nvt.gro -p topol.top -n index.ndx
 
 gmx mdrun -deffnm npt
 ```
+**特殊步骤*可选：在进行压力耦合后，会产生一个npt.edr文件，通过使用energy功能，可以分析能量变化过程**。产生的文件可以从Gromacs_index.pdf里看到（图片识别码：Gromacs_npt_1）。
+```
+gmx energy -f npt.edr -o npt_test.xvg
+```
+在输出的组里选择`  1  Bond           `
+
 ## 7.开始MD
 ### 7.1  准备md.mdp文件
 经过两次平衡后，温度和压力已经稳定，通过释放位置限制，并开始MD。
@@ -1697,9 +1716,13 @@ gen_vel                 = no        ; continuing from NPT equilibration
 ```
 gmx mdrun -v -nt 8 -ntmpi 1 -nb gpu -bonded gpu -deffnm md_0_10
 ```
-
 此时，power shell会实时显示运行进度和参数。
 
+**特殊步骤*可选：在进行MD后，会产生一个md_0_10.edr文件，通过使用energy功能，可以分析能量变化过程**。产生的文件可以从Gromacs_index.pdf里看到（图片识别码：Gromacs_md_1）。
+```
+gmx energy -f md_0_10.edr -o md_0_10_test.xvg
+```
+在输出的组里选择`  1  Bond           `
 ## 8.分析
 <分析部分根据需求使用，仅供参考>
 ### 8.1  重定位和坐标重绘制
@@ -1799,6 +1822,7 @@ gmx make_ndx -f em.gro -n index.ndx
 ```
 gmx rms -s em.tpr -f md_0_10_center.xtc -n index.ndx -tu ns -o rmsd_jz4.xvg
 ```
+
 之后会出现功能选择：
 > Select group for least squares fit --> No.4
 
@@ -1808,6 +1832,7 @@ Group     4 (       Backbone) has   489 elements
 Group    26 (      JZ4_Heavy) has    10 elements
 
 通过拟合去除了蛋白质的整体旋转和平移，RMSD报告了JZ4位置相对于蛋白质的变化程度，这表明了在模拟过程中结合姿势的保留程度。
+**可以在gromacs_index.pdf里查看rmsd_jz4.xvg的可视化图像（图片识别码：Gromacs_rmsd_1）**
 
 ### 8.3  蛋白-配体相互作用能
 
@@ -1906,3 +1931,58 @@ gmx energy -f ie.edr -o interaction_energy.xvg
 >LJ-SR:Protein-JZ4          -97.7819       0.89    7.36148    4.80288  (kJ/mol)
 
 ---
+### ※命令测试与演示
+
+##### 1) gmx hbond命令测试
+```
+gmx hbond -f md_0_10.xtc -s md_0_10.tpr -n index.ndx -num hbnum.xvg -dist hbdist.xvg -ang hbang.xvg
+```
+测试1：分析蛋白侧链和小分子的氢键情况。
+分析组选择：
+> Group     8 (      SideChain) has  1801 elements
+
+> Group    13 (            JZ4) has    22 elements
+
+测试结果：
+> Found 96 donors and 156 acceptors
+> Will do grid-search on 18x18x13 grid, rcut=0.34999999
+> Average number of hbonds per timeframe 0.763 out of 7488 possible
+
+测试2：分析蛋白全原子和小分子的氢键情况。
+分析组选择：
+> Group     1 (        Protein) has  2614 elements
+
+> Group    13 (            JZ4) has    22 elements
+
+测试结果：
+> Found 256 donors and 481 acceptors
+> Will do grid-search on 18x18x13 grid, rcut=0.34999999
+> Average number of hbonds per timeframe 0.765 out of 61568 possible
+
+##### 2) gmx gyrate命令测试
+```
+gmx gyrate -f md_0_10.xtc -s md_0_10.tpr -n index.ndx -o md_test.xvg
+```
+测试1：分析蛋白复合物	
+分析组选择：
+> Group    26 (    Protein_JZ4) has  2636 elements
+
+测试结果：详见gromacs_index.pdg的图片Gromacs_gyrate_1。
+
+测试2：分析蛋白
+分析组选择：
+> Group     1 (        Protein) has  2614 elements
+
+测试结果：详见gromacs_index.pdg的图片Gromacs_gyrate_2。
+
+##### 3)
+```
+
+```
+
+
+##### 4) gmx rama命令测试
+```
+ gmx rama -f md_0_10.xtc -s md_0_10.tpr -o rama_test.xvg
+```
+测试结果：详见gromacs_index.pdg的图片Gromacs_rama_1。
