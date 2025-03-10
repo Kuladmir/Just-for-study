@@ -222,15 +222,17 @@ pip2 install scipy
 准备rec.pdb文件
 
 ```
-mkdir test_steps && cd test_steps 
-#将受体蛋白的pdb文件放到test_steps路径下
+mkdir test && cd test
 
-grep "^ATOM" 6N2W.pdb | grep -v "HOH" > rec.pdb
-#去除水
+wget -c https://files.rcsb.org/download/6N2W.pdb
+# obtain rec.pdb
+
+grep "^ATOM" 6N2W.pdb | grep " B " | grep -v "HOH" > rec.pdb
 
 grep "^HETATM" 6N2W.pdb | grep "FE"  | grep "B" | sed "s/HETATM/ATOM  /" >> rec.pdb
-#将cofactor和金属离子等的标识改为ATOM(如有)
-xtal-lig.pdb文件可以通过之前介绍的方式获得，或者直接从现成文件中提取。
+# obtain xtal-lig.pdb
+
+grep "30Z B 702" 6N2W.pdb > xtal-lig.pdb
 ```
 按位读取
 ```
