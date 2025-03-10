@@ -225,7 +225,7 @@ pip2 install scipy
 mkdir test_steps && cd test_steps 
 #将受体蛋白的pdb文件放到test_steps路径下
 
-grep "^ATOM" name.pdb | grep -v "HOH" > rec.pdb
+grep "^ATOM" 6N2W.pdb | grep -v "HOH" > rec.pdb
 #去除水
 
 grep "^HETATM" 6N2W.pdb | grep "FE"  | grep "B" | sed "s/HETATM/ATOM  /" >> rec.pdb
