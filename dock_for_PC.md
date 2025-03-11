@@ -143,7 +143,7 @@ pip2 install numpy && pip2 install scipy
 ```
 python2 -c "import numpy as np; print(np.__version__)"
 ```
-如果出现以下问题：
+※如果出现以下问题：
 ```
 Traceback (most recent call last):
   File "<string>", line 1, in <module>
