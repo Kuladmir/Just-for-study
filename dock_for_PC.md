@@ -197,9 +197,6 @@ cp /home/usr/bela30c/proteins/defaults/reduce_wwPDB_het_dict.txt .
     -HIS -FLIPS \
     rec.pdb > rec.crg.pdb.fullh 2> addh.log
 
-sed -i 's/\s*new\s*//g' rec.crg.pdb.fullh
-
-sed -i '/^USER.*/d' rec.crg.pdb.fullh
 ```
 ※如果执行上述命令时，显示reduce无法访问，则可以执行如下命令：
 ```
