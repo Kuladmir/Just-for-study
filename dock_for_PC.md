@@ -288,7 +288,7 @@ $DOCKBASE/proteins/dms/bin/dms rec.crg.pdb.dms -a -d 1.0 -i rec.site.dms -g dms.
 
 5. 球面生成（sphgen）
 
-sphgen会产生描述分子和分子表面形状的重叠球面，对于受体：会产生负电的表面内陷；对于配体：会产生全分子的正像。
+sphgen会产生描述分子和分子表面形状的重叠球面，对于受体：会产生负电的表面内陷；对于配体：会产生全分子的正像。球面生成主要是对于rec.pdb来做的，之后会生成低介电球面。并且经过sphgen这一步后，也在匹配球面的perl脚本中使用。
 
 上步生成溶剂排除表面后，球面生成时，会接触两处溶剂排除表面（类似相切），后形成一个球体。这个球面会在整个溶剂排除表面生成，每个曲面点约产生一个球体，之后会过滤较密集的，只保留与每个受体表面原子相关的最大球体。
 
@@ -310,7 +310,7 @@ $DOCKBASE/proteins/sphgen/bin/sphgen
 
 sed -i '1d' all_spheres.sph
 ```
-5. 生成微球
+6. 生成微球
 ---
 #### 目的：生成低介电常数和配体去溶剂化的边界层球；
 #### 输入文件：rec.ts.ms
@@ -321,7 +321,7 @@ python2 $DOCKBASE/proteins/thinspheres/thin_spheres.py -i rec.ts.ms -o low_die_t
 
 python2 $DOCKBASE/proteins/thinspheres/thin_spheres.py -i rec.ts.ms -o lig_des_thinspheres.sph -d 1.0 -s 1.0
 ```
-6. 选择配体附近的微球
+7. 选择配体附近的微球
 
 ---
 #### 目的：选择共晶小分子距离内的边界球；
@@ -333,7 +333,10 @@ python2 $DOCKBASE/proteins/thinspheres/close_sph.py low_die_thinspheres.sph xtal
 
 python2 $DOCKBASE/proteins/thinspheres/close_sph.py lig_des_thinspheres.sph xtal-lig.pdb  lig_des_thinspheres.sph.close 2.0 1.0
 ```
-7. 产生正像
+8. 产生正像
+
+Xtal-lig，共晶小分子会被全原子转化为球面，
+
 ---
 #### 目的：将共晶小分子转化为球面
 #### 输入文件：xtal-lig.pdb
@@ -357,7 +360,7 @@ cd ~/bela30c/proteins/pdbtosph/src
 
 make
 ```
-8. 筛选低介电常数球面
+9. 筛选低介电常数球面
 
 makespheres1.cli.pl
 
@@ -369,7 +372,7 @@ makespheres1.cli.pl
 ```
 $DOCKBASE/proteins/makespheres1/makespheres1.cli.pl xtal-lig.match.sph all_spheres.sph rec.crg.pdb  lowdielectric.sph 25 >& lowdielectric.spheres.log
 ```
-9. 提取坐标并转化
+10. 提取坐标并转化
 
 提取球体坐标，将其转化为C，并写入到pdb文件。
 在运行该步骤之前，需要先安装csh。
@@ -388,7 +391,7 @@ cat rec.crg.pdb lowdielectric.sph.pdb > receptor.crg.lowdielectric.pdb
 ```
 执行这些命令时，需要保证/home/uer/bela30c/proteins/showsphere/doshowsph.sh文件和/home/uer/bela30c/proteins/showsphere/bin/showsphere文件都为可执行文件。
 
-10. 产生匹配球
+11. 产生匹配球
 
 makespheres3.cli.pl
 
@@ -401,6 +404,8 @@ makespheres3.cli.pl
 $DOCKBASE/proteins/makespheres3/makespheres3.cli.pl 1.5 0.8 45 xtal-lig.match.sph all_spheres.sph  rec.crg.pdb matching_spheres.sph >& matching_spheres.log
 ```
 ### 5.打分
+
+打分函数组成：E(score) = E(VDW) + E(ES) + E(lig,desol)。其中VDW部分基于AMBER联合原子力场；ES静电项部分，则是由quifft组成，lig,desol配体去溶剂化部分，主要由去溶剂网格乘以极性/非极性部分获得。
 1. 产生打分网格
 ---
 #### 目的：生成打分需要的网格
