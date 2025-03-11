@@ -665,6 +665,11 @@ cp working/vdw.vdw dockfiles/
 cp working/vdw.bmp dockfiles/
 ```
 ### 6.安装DB2_converter
+db2_converter使用，需引用：
+Xia, Q., Fu, Q., Shen, C., Brenk, R. & Huang, N. Assessing small molecule conformational sampling methods in molecular docking. Journal of Computational Chemistry (2024).
+Tingle, B. I. et al. ZINC-22─A Free Multi-Billion-Scale Database of Tangible Compounds for Ligand Discovery. J. Chem. Inf. Model. 63, 1166–1176 (2023).
+RDKit: Open-source cheminformatics. https://www.rdkit.org
+Sommer, K. et al. UNICON: A Powerful and Easy-to-Use Compound Library Converter. J. Chem. Inf. Model. 56, 1105–1111 (2016).
 #### 1.准备环境
 ```
 conda create -n test python=3.10
