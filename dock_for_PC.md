@@ -743,9 +743,10 @@ build_ligand -i $insmi -n $max_conf --keep_max_conf --workingpath $workingpath -
 ```
 cd ~/db2_converter/db2_converter/
 ```
-然后打开config.py文件，找到对应组建的路径位置，将其修改为正确路径。
+然后打开config.py文件，找到对应组件的路径位置，将其修改为正确路径。
 #### 3.产生db2文件
 可以在 https://tldr.docking.org/results/all 上，使用smi文件获取不同构象状态的组合文件（db2.gz）。
+#### 4.转化文件并开始对接
 下载db2_utils组件。
 ```
 #当前位置：~/test/working
