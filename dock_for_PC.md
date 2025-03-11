@@ -8,7 +8,7 @@ From: Coleman, Carchia, Sterling, Irwin & Shoichet, PLOS ONE 2013。
 
 同时，过程中会使用unicon/ZBH2022等软件，可以在 https://www.zbh.uni-hamburg.de/forschung/amd/software/conformator.html 获取。
 ### 1.  安装WSL
-#### 1)  构建Linux系统
+
 Windows 10及以上开放了一个功能：Windows子系统（Windows Subsystem for Linux, WSL）。
 
 #### 1.1 
