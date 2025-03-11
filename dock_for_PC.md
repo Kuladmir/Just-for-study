@@ -48,7 +48,9 @@ https://www.anaconda.com/docs/getting-started/miniconda/install#macos-linux-inst
 > (bash)usr_name@usr_name:
 
 ### 3.安装DOCK3.7
-可以直接在：https://pan.baidu.com/s/1gTBVGuuS3vLwLDeGahYSGQ?pwd=a2is 下载。
+From: https://pan.baidu.com/s/1tBL7tkRMwP2wUy6Zica-UA?pwd=29jm 下载。
+**注：本链接包含了DOCK3.7文件内容、db2utils文件、db2_converter文件、案例执行结果和ZBH文件**
+**一些文件可能具有License，例如ZBH里的一些，需要及时去申请（学术免费）**
 将.zip文件压缩后，确保bela30c为根目录，然后打开该目录就能看到其他所有文件。
 
 ### 4.使用DOCK3.7
