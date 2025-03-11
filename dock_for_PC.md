@@ -566,8 +566,8 @@ match_goal                    1000
 distance_step                 0.05
 distance_maximum              0.5
 timeout                       10.0
-nodes_maximum                 4
-nodes_minimum                 4
+nodes_maximum                 4  ##最大值是4，如果想要增大，则需要修改底层代码
+nodes_minimum                 4  ##最大值是4，如果想要增大，则需要修改底层代码
 bump_maximum                  10.0
 bump_rigid                    10.0
 mol2_score_maximum            -10.0
@@ -621,7 +621,7 @@ iseed                         777
 # INPUT FILES / THINGS THAT CHANGE
 receptor_sphere_file          ../dockfiles/matching_spheres.sph
 vdw_parameter_file            ../dockfiles/vdw.parms.amb.mindock
-delphi_nsize                  $delphi_nsize
+delphi_nsize                  $delphi_nsize   ##经典网格尺寸
 flexible_receptor             no
 total_receptors               1
 ############## grids/data for one receptor
