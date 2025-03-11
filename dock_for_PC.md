@@ -120,7 +120,7 @@ grep "30Z B 702" 6N2W.pdb > xtal-lig.pdb
 ```
 python2.7 /home/usr/bela30c/proteins/blastermaster/blastermaster.py --addhOptions=" -HIS -FLIPs " -v
 ```
-如果出现以下错误：
+※如果出现以下错误：
 ```
 WARNING:root:Could not find numpy or numeric
 CRITICAL:root:Could not find any matrix library (Numeric, numpy, pMatrix)! Cannot proceed
@@ -172,7 +172,7 @@ sudo apt install libgfortran5
 python2 -c "import numpy as np; print(np.__version__)"
 ```
 如果输出版本，则说明正常。
-#### 4.4 分布运行（首次建议）
+#### 4.4 分步运行（首次建议）
 1. 执行完4.2的命令后，执行如下命令：
 ```
 python2 $DOCKBASE/proteins/blastermaster/fmt_rec.py
