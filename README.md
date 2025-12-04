@@ -19,10 +19,15 @@
 #### Gromacs_windows是一个较为基础的流程，稍复杂的为Gromacs_index（但也比较简单qwq）。
 ##### Gromacs_windows.md is a relatively basic process, with a slightly more complex one called Gromacs_index.md (but also relatively simple qwq).
 
-### 其他说明：
+### 其他说明（Other explanation）：
 
 本C语言教程，仔细学习，足以支持考取**计算机二级C语言证书**。
 
-本Python语言教程，仔细学习，足以支持考取**计算机二级python语言证书**。
+本Python语言教程，仔细学习，足以支持考取**计算机二级Python语言证书**。
 
-python语言教程，V 1.1.9及以后版本中，例题部分加入Q_n系列题目，这些题目可以在practice_python部分找到。
+Python语言教程，V 1.1.9及以后版本中，例题部分加入Q_n系列题目，这些题目可以在practice_python部分找到。
+
+### 未来更新计划（Future plan）：
+
+1.Linux教程更新，用于攻克NCRE三级/四级Linux；
+2.Database教程更新，用于攻克NCRE三级/四级数据库。
