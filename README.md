@@ -30,4 +30,5 @@ Python语言教程，V 1.1.9及以后版本中，例题部分加入Q_n系列题�
 ### 未来更新计划（Future plan）：
 
 1.Linux教程更新，用于攻克NCRE三级/四级Linux；
+
 2.Database教程更新，用于攻克NCRE三级/四级数据库。
