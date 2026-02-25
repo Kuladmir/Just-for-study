@@ -721,7 +721,7 @@ pip install -e $installpath/db2_converter/ligand/generate/db2_converter
 
 ***TLDR处理***
 
-https://tldr.docking.org/start。
+https://tldr.docking.org/start
 使用build3d37进行，将共晶小分子的smiles文本内容，保存在input.smi文件里，build3d37可以对其进行多构象分析，产生一个多构象的.mol2文件。
 
 ### 4.2  DOCKing
