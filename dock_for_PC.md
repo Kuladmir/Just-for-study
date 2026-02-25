@@ -768,7 +768,7 @@ cd ~/db2_converter/db2_converter/
 conda install ncurses
 ```
 #### 3.产生db2文件
-可以在 https://tldr.docking.org/results/all 上，使用smi文件获取不同构象状态的组合文件（db2.gz）。
+可以在 https://tldr.docking.org上，选择**build3d38**，之后可以上传smi文件或者上传txt文件（里面是小分子的smiles），然后提交获取不同构象状态的组合文件（db2.gz）。
 #### 4.转化文件并开始对接
 下载db2_utils组件。
 ```
