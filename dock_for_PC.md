@@ -742,6 +742,10 @@ cd ~/test/working
 
 ~/unicon_version/unicon -i xtal-lig.pdb -o xtal-lig.smi -t single -p single
 
+如果用的是ZBH2022，命令应该是：  ~/ZBH2022/unicon_1.4.2/unicon -i xtal-lig.pdb -o xtal-lig.smi -t single -p single
+
+如果要激活，首先去官网找到Unicon工具，获得最新许可证。然后使用如下命令：~/ZBH2022/unicon_1.4.2/unicon --license 许可码  会报错，无视就可以。
+
 max_conf=100
 
 workingpath=$(readlink -f "xtal-lig")
