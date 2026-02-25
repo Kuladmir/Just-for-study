@@ -716,7 +716,7 @@ conda list rdkit
 # 在db2_converter里有一个setup.py文件，在与其相同的路径下，执行pip命令：
 pip install -e ~/db2_converter
 
-build-ligand -h
+build_ligand -h
 ```
 ※如果产生错误：
 >ModuleNotFoundError: No module named 'tabulate'
